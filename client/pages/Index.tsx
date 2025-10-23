@@ -16,6 +16,25 @@ function withUtm(url: string, content: string) {
     `&utm_content=${encodeURIComponent(content)}`;
   return `${url}${delim}${params}`;
 }
+// +++ UTM helper +++
+const withUtm = (
+  url: string,
+  source: string,
+  medium = 'landing',
+  campaign = 'main'
+) => {
+  try {
+    const u = new URL(url);
+    u.searchParams.set('utm_source', source);
+    u.searchParams.set('utm_medium', medium);
+    u.searchParams.set('utm_campaign', campaign);
+    return u.toString();
+  } catch {
+    return url;
+  }
+};
+// --- end helper ---
+
 export default function Index() {
   return (
     <div className="min-h-screen bg-[#282828] text-white font-sans">
@@ -51,66 +70,62 @@ export default function Index() {
         </div>
 
         {/* Social Media Buttons */}
-        <section className="bg-[#282828] py-[30px] px-5">
-          <div className="max-w-[640px] mx-auto">
-            <div className="flex flex-col gap-[10px] max-w-[350px] mx-auto">
-              <a 
-                <a
-  href={withUtm("https://vk.com/alice_makeup_nk", "vk_main")}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center font-bold text-[13px]"
->
-  Мои работы
-</a>
+       {/* Social Media Buttons */}
+<section className="bg-[#282828] py-[30px] px-5">
+  <div className="max-w-[640px] mx-auto">
+    <div className="flex flex-col gap-[10px] max-w-[350px] mx-auto">
+      <a
+        href={withUtm("https://vk.com/alice_makeup_nk", "vk_main")}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center font-bold text-[13px]"
+      >
+        Мои работы
+      </a>
 
-<a
-  href={withUtm("https://wa.me/79179198890", "wa_booking")}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
->
-  <div className="font-bold text-[13px]">WhatsApp</div>
-  <div className="text-[11px] opacity-80 font-bold">Запись</div>
-</a>
+      <a
+        href={withUtm("https://wa.me/79179198890", "wa_booking")}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+      >
+        <div className="font-bold text-[13px]">WhatsApp</div>
+        <div className="text-[11px] opacity-80 font-bold">Запись</div>
+      </a>
 
-<a
-  href={withUtm("https://vk.me/alice_makeup_nk1", "vk_dm")}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
->
-  <div className="font-bold text-[13px]">VKontakte</div>
-  <div className="text-[11px] opacity-80 font-bold">Запись</div>
-</a>
+      <a
+        href={withUtm("https://vk.me/alice_makeup_nk1", "vk_dm")}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+      >
+        <div className="font-bold text-[13px]">VKontakte</div>
+        <div className="text-[11px] opacity-80 font-bold">Запись</div>
+      </a>
 
-<a
-  href={withUtm("https://t.me/alice_makeup_nk", "tg_booking")}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
->
-  <div className="font-bold text-[13px]">Telegram</div>
-  <div className="text-[11px] opacity-80 font-bold">Запись</div>
-</a>
+      <a
+        href={withUtm("https://t.me/alice_makeup_nk", "tg_booking")}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+      >
+        <div className="font-bold text-[13px]">Telegram</div>
+        <div className="text-[11px] opacity-80 font-bold">Запись</div>
+      </a>
 
-<a
-  href={withUtm("https://www.instagram.com/alice_makeup_nk", "ig_profile")}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
->
-  <div className="font-bold text-[13px]">Instagram</div>
-  <div className="text-[11px] opacity-80 font-bold">Запись</div>
-</a>
+      <a
+        href={withUtm("https://www.instagram.com/alice_makeup_nk", "ig_profile")}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+      >
+        <div className="font-bold text-[13px]">Instagram</div>
+        <div className="text-[11px] opacity-80 font-bold">Запись</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-              >
-                <div className="font-bold text-[13px]">Instagram</div>
-                <div className="text-[11px] opacity-80 font-bold">Запись</div>
-              </a>
-            </div>
-          </div>
-        </section>
 
         {/* Divider with Star */}
         <div className="bg-[#282828] py-[15px] px-5 flex justify-center items-center gap-4">
