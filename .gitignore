@@ -1,0 +1,12 @@
+﻿# Node / JS
+node_modules/
+dist/
+build/
+.cache/
+.vite/
+.next/
+out/
+*.log
+.env
+.env.*
+.DS_Store
