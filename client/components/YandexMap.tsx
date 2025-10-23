@@ -1,72 +1,76 @@
 ﻿
 import React from "react";
-import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
-
-/**
- * Безопасный компонент Яндекс.Карт:
- * - Центр всегда массив [lat, lon] (если не передали — берём дефолт).
- * - Никаких деструктуризаций из undefined.
- * - Пин кликабелен: открывает маршрут в Яндекс.Картах.
- * - Не рендерим карту на сервере (SSR guard).
- */
+import {
+  YMaps,
+  Map,
+  Placemark,
+} from "@pbe/react-yandex-maps";
 
 type Props = {
-  /** Центр карты, если не указать — возьмём дефолт (Нижнекамск, Бызова 2к2 окрестности) */
-  center?: [number, number] | number[] | null | undefined;
-  /** Зум по умолчанию */
+  /** [lat, lon] */
+  center?: [number, number];
+  /** 10–19 обычно */
   zoom?: number;
-  /** Высота контейнера */
-  height?: number | string;
+  /** px */
+  height?: number;
 };
 
-const DEFAULT_CENTER: [number, number] = [55.6345, 51.8143]; // безопасный дефолт
+const DEFAULT_CENTER: [number, number] = [55.6345, 51.8143]; // Бызова 2к2
+const DEFAULT_ZOOM = 17;
 
-function normalizeCenter(input: Props["center"]): [number, number] {
-  if (Array.isArray(input) && input.length === 2) {
-    const a = Number(input[0]);
-    const b = Number(input[1]);
-    if (Number.isFinite(a) && Number.isFinite(b)) return [a, b];
-  }
-  return DEFAULT_CENTER;
-}
-
-export default function YandexMap(props: Props) {
-  const isClient = typeof window !== "undefined";
-  const center = React.useMemo(() => normalizeCenter(props.center), [props.center]);
-  const zoom = Number.isFinite(props.zoom as number) ? (props.zoom as number) : 16;
-  const height = props.height ?? 385;
-
-  const openYandexRoute = React.useCallback(() => {
-    const url = `https://yandex.ru/maps/?rtext=~${center[0]},${center[1]}&rtt=auto`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  }, [center]);
-
-  if (!isClient) {
-    // SSR/fallback — ничего «итерировать» не пытаемся
-    return <div style={{ width: "100%", height }} />;
-  }
+export default function YandexMap({
+  center = DEFAULT_CENTER,
+  zoom = DEFAULT_ZOOM,
+  height = 385,
+}: Props) {
+  // формируем ссылку «Маршрут» в Яндекс.Картах
+  const [lat, lon] = center;
+  const routeUrl = `https://yandex.ru/maps/?rtext=~${lat},${lon}&rtt=auto`;
 
   return (
     <div style={{ width: "100%", height }}>
-      <YMaps query={{ lang: "ru_RU" }}>
+      <YMaps
+        /** грузим карты «лениво» и минимально */
+        query={{
+          // язык/регион можно поменять: ru_RU / tr_TR и т.п.
+          lang: "ru_RU",
+          // только необходимые модули
+          load: "package.full",
+        }}
+      >
         <Map
+          defaultState={{ center, zoom }}
+          state={{ center, zoom }}
           width="100%"
           height={height}
-          state={{ center, zoom }}
-          defaultState={{ center, zoom }}
           options={{
-            yandexMapDisablePoiInteractivity: true,
             suppressMapOpenBlock: true,
+            yandexMapAllowCSSFilters: true,
           }}
+          modules={["control.ZoomControl", "control.FullscreenControl"]}
         >
           <Placemark
             geometry={center}
-            options={{ preset: "islands#violetDotIcon", iconColor: "#8D5193" }}
-            properties={{
-              hintContent: "MAKEUP NK",
-              balloonContent: "Нажмите, чтобы построить маршрут в Яндекс.Картах",
+            options={{
+              preset: "islands#violetIcon",
+              openEmptyBalloon: true,
             }}
-            onClick={openYandexRoute}
+            properties={{
+              iconCaption: "Dream Room",
+              balloonContent:
+                `<div style="font:13px/1.4 system-ui">
+                   <div><b>MAKEUP NK</b></div>
+                   <div>ул. Бызова 2к2, салон Dream Room</div>
+                   <div style="margin-top:8px">
+                     <a href="${routeUrl}" target="_blank" rel="noopener noreferrer">Маршрут в Яндекс.Картах</a>
+                   </div>
+                 </div>`,
+            }}
+            onClick={() => {
+              // по клику сразу открываем маршрут в новой вкладке
+              window.open(routeUrl, "_blank", "noopener,noreferrer");
+            }}
+            modules={["geoObject.addon.balloon", "geoObject.addon.hint"]}
           />
         </Map>
       </YMaps>
