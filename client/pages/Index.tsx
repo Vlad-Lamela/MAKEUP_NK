@@ -1,34 +1,8 @@
 import YandexMap from "@/components/YandexMap";
 
+import { withUtm } from "@/lib/utm";
 
-// аккуратно добавляет ? или & и подставляет utm_* + utm_content
-function withUtm(url: string, content: string) {
-  const delim = url.includes("?") ? "&" : "?";
-  const params =
-    `utm_source=${encodeURIComponent(UTM.source)}` +
-    `&utm_medium=${encodeURIComponent(UTM.medium)}` +
-    `&utm_campaign=${encodeURIComponent(UTM.campaign)}` +
-    `&utm_content=${encodeURIComponent(content)}`;
-  return `${url}${delim}${params}`;
-}
-// +++ UTM helper +++
-const withUtm = (
-  url: string,
-  source: string,
-  medium = 'landing',
-  campaign = 'main'
-) => {
-  try {
-    const u = new URL(url);
-    u.searchParams.set('utm_source', source);
-    u.searchParams.set('utm_medium', medium);
-    u.searchParams.set('utm_campaign', campaign);
-    return u.toString();
-  } catch {
-    return url;
-  }
-};
-// --- end helper ---
+
 
 export default function Index() {
   return (
