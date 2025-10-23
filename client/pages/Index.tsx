@@ -1,3 +1,5 @@
+import YandexMap from "@/components/YandexMap";
+
 export default function Index() {
   return (
     <div className="min-h-screen bg-[#282828] text-white font-sans">
@@ -210,21 +212,20 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Map Section */}
-        <section className="bg-[#282828] py-[15px] px-5">
-          <div className="max-w-[640px] mx-auto">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2260.9898739394703!2d37.61749932346042!3d55.75197881488651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414ab5a8c1c1c1c1%3A0x0!2sNizhnekasmsk!5e0!3m2!1sru!2sru!4v1234567890"
-              width="100%"
-              height="385"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg"
-            />
-          </div>
-        </section>
+        {/* Map Section (Yandex) */}
+<section className="bg-[#282828] py-[15px] px-5">
+  <div className="max-w-[640px] mx-auto">
+    <YandexMap
+      lat={55.657748}      // ← ВСТАВЬ СВОЮ широту (lat)
+      lon={51.824357}      // ← ВСТАВЬ СВОЮ долготу (lon)
+      zoom={16}
+      label="Открыть в Яндекс.Картах"
+      height={385}
+      className="rounded-lg overflow-hidden"
+    />
+  </div>
+</section>
+
 
         {/* Footer */}
         <footer className="bg-[#0D0D0D] py-[45px] pb-[60px] px-5">
