@@ -5,6 +5,9 @@ import { createServer } from "./server";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // ВАЖНО: для GitHub Pages (репозиторий называется MAKEUP_NK)
+  base: "/MAKEUP_NK/",
+
   server: {
     host: "::",
     port: 8080,
@@ -13,10 +16,14 @@ export default defineConfig(({ mode }) => ({
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
+
   build: {
     outDir: "dist/spa",
+    assetsDir: "assets", // опционально, оставь как есть
   },
+
   plugins: [react(), expressPlugin()],
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./client"),
@@ -28,11 +35,9 @@ export default defineConfig(({ mode }) => ({
 function expressPlugin(): Plugin {
   return {
     name: "express-plugin",
-    apply: "serve", // Only apply during development (serve mode)
+    apply: "serve", // работает только в dev, на билд не влияет
     configureServer(server) {
       const app = createServer();
-
-      // Add Express app as middleware to Vite dev server
       server.middlewares.use(app);
     },
   };
