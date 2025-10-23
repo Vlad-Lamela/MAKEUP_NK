@@ -1,30 +1,15 @@
-import "./global.css";
+﻿import React from 'react'
 
-import { Toaster } from "@/components/ui/toaster";
-import { createRoot } from "react-dom/client";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+// ВРЕМЕННО: без роутера и без запросов к /server
+export default function App() {
+  React.useEffect(() => {
+    console.log('MAKEUP_NK: App mounted')
+  }, [])
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-createRoot(document.getElementById("root")!).render(<App />);
+  return (
+    <div style={{ padding: 24, fontFamily: 'system-ui' }}>
+      <h1>✅ Сайт работает</h1>
+      <p>Это тестовый рендер без роутера и без сервера.</p>
+    </div>
+  )
+}
