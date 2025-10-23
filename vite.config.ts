@@ -3,9 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { createServer } from "./server";
 
-// https://vitejs.dev/config/
 export default defineConfig(() => ({
-  // ВАЖНО для GitHub Pages (репозиторий MAKEUP_NK)
+  // GitHub Pages под репозиторием MAKEUP_NK
   base: "/MAKEUP_NK/",
 
   server: {
@@ -17,9 +16,11 @@ export default defineConfig(() => ({
     },
   },
 
+  // ВАЖНО: собираем СРАЗУ в docs, чтобы Pages читал это без копирования
   build: {
-    outDir: "dist/spa",
+    outDir: "docs",
     assetsDir: "assets",
+    sourcemap: true
   },
 
   plugins: [react(), expressPlugin()],
