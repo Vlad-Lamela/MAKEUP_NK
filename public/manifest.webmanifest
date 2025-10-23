@@ -1,0 +1,13 @@
+﻿{
+  "name": "MAKEUP NK",
+  "short_name": "MAKEUP NK",
+  "start_url": "/MAKEUP_NK/",
+  "scope": "/MAKEUP_NK/",
+  "display": "standalone",
+  "background_color": "#282828",
+  "theme_color": "#282828",
+  "icons": [
+    { "src": "/MAKEUP_NK/og.png",       "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/MAKEUP_NK/og.png",       "sizes": "192x192", "type": "image/png", "purpose": "any" }
+  ]
+}
