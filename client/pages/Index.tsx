@@ -1,10 +1,5 @@
 import YandexMap from "@/components/YandexMap";
-// UTM helper
-const UTM = {
-  source: "site",           // откуда: site / github-pages и т.п.
-  medium: "button",         // тип трафика: button / link
-  campaign: "makeupnk_2025" // кампания
-};
+
 
 // аккуратно добавляет ? или & и подставляет utm_* + utm_content
 function withUtm(url: string, content: string) {
