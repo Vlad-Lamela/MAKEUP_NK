@@ -1,14 +1,5 @@
-User-agent: Googlebot
+﻿User-agent: *
 Allow: /
 
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
-Allow: /
+Host: vlad-lamela.github.io
+Sitemap: https://vlad-lamela.github.io/MAKEUP_NK/sitemap.xml
