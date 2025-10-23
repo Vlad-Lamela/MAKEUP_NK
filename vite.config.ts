@@ -1,11 +1,11 @@
-import { defineConfig, Plugin } from "vite";
+﻿import { defineConfig, Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { createServer } from "./server";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  // ВАЖНО: для GitHub Pages (репозиторий называется MAKEUP_NK)
+export default defineConfig(() => ({
+  // ВАЖНО для GitHub Pages (репозиторий MAKEUP_NK)
   base: "/MAKEUP_NK/",
 
   server: {
@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => ({
 
   build: {
     outDir: "dist/spa",
-    assetsDir: "assets", // опционально, оставь как есть
+    assetsDir: "assets",
   },
 
   plugins: [react(), expressPlugin()],
@@ -35,7 +35,7 @@ export default defineConfig(({ mode }) => ({
 function expressPlugin(): Plugin {
   return {
     name: "express-plugin",
-    apply: "serve", // работает только в dev, на билд не влияет
+    apply: "serve", // только в dev, на билд не влияет
     configureServer(server) {
       const app = createServer();
       server.middlewares.use(app);
