@@ -1,5 +1,21 @@
 import YandexMap from "@/components/YandexMap";
+// UTM helper
+const UTM = {
+  source: "site",           // откуда: site / github-pages и т.п.
+  medium: "button",         // тип трафика: button / link
+  campaign: "makeupnk_2025" // кампания
+};
 
+// аккуратно добавляет ? или & и подставляет utm_* + utm_content
+function withUtm(url: string, content: string) {
+  const delim = url.includes("?") ? "&" : "?";
+  const params =
+    `utm_source=${encodeURIComponent(UTM.source)}` +
+    `&utm_medium=${encodeURIComponent(UTM.medium)}` +
+    `&utm_campaign=${encodeURIComponent(UTM.campaign)}` +
+    `&utm_content=${encodeURIComponent(content)}`;
+  return `${url}${delim}${params}`;
+}
 export default function Index() {
   return (
     <div className="min-h-screen bg-[#282828] text-white font-sans">
@@ -39,39 +55,55 @@ export default function Index() {
           <div className="max-w-[640px] mx-auto">
             <div className="flex flex-col gap-[10px] max-w-[350px] mx-auto">
               <a 
-                href="https://vk.com/alice_makeup_nk"
-                className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center font-bold text-[13px]"
-              >
-                Мои работы
-              </a>
-              
-              <a 
-                href="https://wa.me/79179198890"
-                className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
-              >
-                <div className="font-bold text-[13px]">WhatsApp</div>
-                <div className="text-[11px] opacity-80 font-bold">Запись</div>
-              </a>
-              
-              <a 
-                href="https://vk.me/alice_makeup_nk1"
-                className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
-              >
-                <div className="font-bold text-[13px]">VKontakte</div>
-                <div className="text-[11px] opacity-80 font-bold">Запись</div>
-              </a>
-              
-              <a 
-                href="https://t.me/alice_makeup_nk"
-                className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
-              >
-                <div className="font-bold text-[13px]">Telegram</div>
-                <div className="text-[11px] opacity-80 font-bold">Запись</div>
-              </a>
-              
-              <a 
-                href="https://www.instagram.com/alice_makeup_nk"
-                className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+                <a
+  href={withUtm("https://vk.com/alice_makeup_nk", "vk_main")}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center font-bold text-[13px]"
+>
+  Мои работы
+</a>
+
+<a
+  href={withUtm("https://wa.me/79179198890", "wa_booking")}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+>
+  <div className="font-bold text-[13px]">WhatsApp</div>
+  <div className="text-[11px] opacity-80 font-bold">Запись</div>
+</a>
+
+<a
+  href={withUtm("https://vk.me/alice_makeup_nk1", "vk_dm")}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+>
+  <div className="font-bold text-[13px]">VKontakte</div>
+  <div className="text-[11px] opacity-80 font-bold">Запись</div>
+</a>
+
+<a
+  href={withUtm("https://t.me/alice_makeup_nk", "tg_booking")}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+>
+  <div className="font-bold text-[13px]">Telegram</div>
+  <div className="text-[11px] opacity-80 font-bold">Запись</div>
+</a>
+
+<a
+  href={withUtm("https://www.instagram.com/alice_makeup_nk", "ig_profile")}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+>
+  <div className="font-bold text-[13px]">Instagram</div>
+  <div className="text-[11px] opacity-80 font-bold">Запись</div>
+</a>
+
               >
                 <div className="font-bold text-[13px]">Instagram</div>
                 <div className="text-[11px] opacity-80 font-bold">Запись</div>
