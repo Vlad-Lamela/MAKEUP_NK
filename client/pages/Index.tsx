@@ -229,19 +229,12 @@ export default function Index() {
         </section>
 
         {/* Map Section (Yandex) */}
-<section className="bg-[#282828] py-[15px] px-5">
-  <div className="max-w-[640px] mx-auto">
-    <YandexMap
-      lat={55.657748}      // ← ВСТАВЬ СВОЮ широту (lat)
-      lon={51.824357}      // ← ВСТАВЬ СВОЮ долготу (lon)
-      zoom={16}
-      label="Открыть в Яндекс.Картах"
-      height={385}
-      className="rounded-lg overflow-hidden"
-    />
-  </div>
-</section>
-
+<YandexMap
+  key="55.657748,51.824357"
+  center={[55.657748, 51.824357]}
+  zoom={17}
+  height={385}
+/>
 
         {/* Footer */}
         <footer className="bg-[#0D0D0D] py-[45px] pb-[60px] px-5">
