@@ -11,35 +11,34 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node
-  uses: actions/setup-node@v4
-  with:
-    node-version: '20.19.0'
-    cache: 'npm'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.0'
+          cache: 'npm'
 
       - name: Install deps
         run: npm ci || npm i
 
-      - name: Build (Vite outputs to docs/)
+      - name: Build (Vite -> docs/)
         run: |
           npm run build
           cp docs/index.html docs/404.html || true
           touch docs/.nojekyll
 
-      - name: Upload artifact (docs/)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs
+          path: docs
 
   deploy:
     needs: build
@@ -47,5 +46,5 @@ jobs:
     environment:
       name: github-pages
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: actions/deploy-pages@v4
