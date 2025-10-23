@@ -1,4 +1,4 @@
-﻿name: Deploy to GitHub Pages
+﻿name: Deploy to GitHub Pages (docs)
 
 on:
   push:
@@ -24,20 +24,21 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
       - name: Install deps
         run: npm ci || npm i
 
-      - name: Build
+      - name: Build (Vite outputs to docs/)
         run: |
           npm run build
-          [ -f dist/spa/index.html ] && cp dist/spa/index.html dist/spa/404.html || true
+          cp docs/index.html docs/404.html || true
+          touch docs/.nojekyll
 
-      - name: Upload artifact
+      - name: Upload artifact (docs/)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/spa
+          path: ./docs
 
   deploy:
     needs: build
