@@ -5,7 +5,7 @@ import { createServer } from "./server";
 
 export default defineConfig(() => ({
   // GitHub Pages под репозиторием MAKEUP_NK
-  base: "/MAKEUP_NK/",
+  base: '/',
 
   server: {
     host: "::",
