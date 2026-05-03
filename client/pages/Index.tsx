@@ -6,22 +6,22 @@ import { withUtm } from "@/lib/utm";
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-[#282828] text-white font-sans">
+    <div className="min-h-screen bg-[#3a3a3a] text-white font-sans">
       <div className="w-full">
         {/* Hero Section with Banner and Avatar */}
-        <section className="relative bg-[#282828]">
+        <section className="relative bg-[#3a3a3a]">
           {/* Banner Background */}
           <div 
             className="w-full h-[400px] bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://static.tildacdn.pub/tild3064-3039-4734-b232-306632336332/noroot.png')`
+              backgroundImage: `url('/main-banner.png')`
             }}
           />
           
           {/* Avatar */}
           <div className="flex justify-center relative -mt-[80px] pb-[30px] z-10">
             <div 
-              className="w-[140px] h-[140px] rounded-full bg-cover bg-center border-4 border-[#282828]"
+              className="w-[140px] h-[140px] rounded-full bg-cover bg-center border-4 border-[#3a3a3a]"
               style={{
                 backgroundImage: `url('https://static.tildacdn.pub/tild3163-6136-4132-b934-636430336539/noroot.png')`
               }}
@@ -30,7 +30,7 @@ export default function Index() {
         </section>
 
         {/* Divider with Star */}
-        <div className="bg-[#282828] py-[15px] px-5 flex justify-center items-center gap-4">
+        <div className="bg-[#3a3a3a] py-[15px] px-5 flex justify-center items-center gap-4">
           <div className="flex-1 max-w-[150px] h-px bg-gradient-to-r from-transparent to-[#693B9A]" />
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
             <path fillRule="evenodd" clipRule="evenodd" d="M7.5009 0L9.67541 4.6824L14.8006 5.30356L11.0194 8.81861L12.0124 13.8849L7.5009 11.375L2.98942 13.8849L3.98243 8.81861L0.201172 5.30356L5.32637 4.6824L7.5009 0ZM7.5009 2.22578L5.95696 5.55034L2.31802 5.99137L5.00275 8.48708L4.2977 12.0842L7.5009 10.3021L10.7041 12.0842L9.99904 8.48708L12.6838 5.99137L9.04484 5.55034L7.5009 2.22578Z" fill="#8D5193"/>
@@ -40,53 +40,53 @@ export default function Index() {
 
         {/* Social Media Buttons */}
        {/* Social Media Buttons */}
-<section className="bg-[#282828] py-[30px] px-5">
+<section className="bg-[#3a3a3a] py-[30px] px-5">
   <div className="max-w-[640px] mx-auto">
     <div className="flex flex-col gap-[10px] max-w-[350px] mx-auto">
       <a
-        href={withUtm("https://vk.com/alice_makeup_nk", "vk_main")}
+        href={withUtm("https://vk.ru/beauty_scout_nk1", "vk_main")}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center font-bold text-[13px]"
+        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center font-bold text-[13px]"
       >
         Мои работы
       </a>
 
       <a
-        href={withUtm("https://wa.me/79179198890", "wa_booking")}
+        href={withUtm("https://max.ru/u/f9LHodD0cOINpgkQSxwry9j9RAtKauyeRdsJxj0gyd2w3CXGwWXcXK-EZwI", "max_booking")}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
       >
-        <div className="font-bold text-[13px]">WhatsApp</div>
+        <div className="font-bold text-[13px]">MAX</div>
         <div className="text-[11px] opacity-80 font-bold">Запись</div>
       </a>
 
       <a
-        href={withUtm("https://vk.me/alice_makeup_nk1", "vk_dm")}
+        href={withUtm("https://vk.me/beauty_scout_nk", "vk_dm")}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
       >
         <div className="font-bold text-[13px]">VKontakte</div>
         <div className="text-[11px] opacity-80 font-bold">Запись</div>
       </a>
 
       <a
-        href={withUtm("https://t.me/alice_makeup_nk", "tg_booking")}
+        href={withUtm("https://t.me/beauty_scout_nk#", "tg_booking")}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
       >
         <div className="font-bold text-[13px]">Telegram</div>
         <div className="text-[11px] opacity-80 font-bold">Запись</div>
       </a>
 
       <a
-        href={withUtm("https://www.instagram.com/alice_makeup_nk", "ig_profile")}
+        href={withUtm("https://www.instagram.com/beauty_scout_nk", "ig_profile")}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
+        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
       >
         <div className="font-bold text-[13px]">Instagram</div>
         <div className="text-[11px] opacity-80 font-bold">Запись</div>
@@ -97,7 +97,7 @@ export default function Index() {
 
 
         {/* Divider with Star */}
-        <div className="bg-[#282828] py-[15px] px-5 flex justify-center items-center gap-4">
+        <div className="bg-[#3a3a3a] py-[15px] px-5 flex justify-center items-center gap-4">
           <div className="flex-1 max-w-[150px] h-px bg-gradient-to-r from-transparent to-[#693B9A]" />
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
             <path fillRule="evenodd" clipRule="evenodd" d="M7.5009 0L9.67541 4.6824L14.8006 5.30356L11.0194 8.81861L12.0124 13.8849L7.5009 11.375L2.98942 13.8849L3.98243 8.81861L0.201172 5.30356L5.32637 4.6824L7.5009 0ZM7.5009 2.22578L5.95696 5.55034L2.31802 5.99137L5.00275 8.48708L4.2977 12.0842L7.5009 10.3021L10.7041 12.0842L9.99904 8.48708L12.6838 5.99137L9.04484 5.55034L7.5009 2.22578Z" fill="#8D5193"/>
@@ -106,7 +106,7 @@ export default function Index() {
         </div>
 
         {/* Price List Section */}
-        <section className="bg-[#282828] py-[30px] px-5">
+        <section className="bg-[#3a3a3a] py-[30px] px-5">
           <div className="max-w-[640px] mx-auto">
             {/* Section Title */}
             <h2 className="text-center text-[28px] font-bold uppercase mb-[45px]">Прайс лист</h2>
@@ -137,7 +137,7 @@ export default function Index() {
                 <p className="text-[12px] font-light leading-[20.3px] mb-6">
                   Сияющий тон, коррекция, легкий макияж глаз, оформление бровей, нюдовые губы, включает в себя накладные ресницы.
                 </p>
-                <button className="bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
+                <button className="bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
                   1 700 ₽
                 </button>
               </div>
@@ -169,7 +169,7 @@ export default function Index() {
                 <p className="text-[12px] font-light leading-[20.3px] mb-6">
                   Сияющий тон, коррекция, эффектный взгляд (от смоки до стрелок), оформление бровей, подходящее оформление губ, включает в себя накладные ресницы.
                 </p>
-                <button className="bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
+                <button className="bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
                   2 000 ₽
                 </button>
               </div>
@@ -201,7 +201,7 @@ export default function Index() {
                 <p className="text-[12px] font-light leading-[20.3px] mb-6">
                   Сияющий тон, коррекция, эффектный взгляд (от смоки до стрелок), оформление бровей, подходящее оформление губ, включает в себя накладные ресницы, оформление тела + предоставляются расходники (мини косметичка).
                 </p>
-                <button className="bg-[#693B9A] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
+                <button className="bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
                   2 500 ₽
                 </button>
               </div>
@@ -210,7 +210,7 @@ export default function Index() {
         </section>
 
         {/* Divider with Star */}
-        <div className="bg-[#282828] py-[15px] px-5 flex justify-center items-center gap-4">
+        <div className="bg-[#3a3a3a] py-[15px] px-5 flex justify-center items-center gap-4">
           <div className="flex-1 max-w-[150px] h-px bg-gradient-to-r from-transparent to-[#693B9A]" />
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
             <path fillRule="evenodd" clipRule="evenodd" d="M7.5009 0L9.67541 4.6824L14.8006 5.30356L11.0194 8.81861L12.0124 13.8849L7.5009 11.375L2.98942 13.8849L3.98243 8.81861L0.201172 5.30356L5.32637 4.6824L7.5009 0ZM7.5009 2.22578L5.95696 5.55034L2.31802 5.99137L5.00275 8.48708L4.2977 12.0842L7.5009 10.3021L10.7041 12.0842L9.99904 8.48708L12.6838 5.99137L9.04484 5.55034L7.5009 2.22578Z" fill="#8D5193"/>
@@ -219,7 +219,7 @@ export default function Index() {
         </div>
 
         {/* Address Section */}
-        <section className="bg-[#282828] py-[15px] px-5">
+        <section className="bg-[#3a3a3a] py-[15px] px-5">
           <div className="max-w-[640px] mx-auto text-center">
             <p className="text-[14px] font-light leading-[23.2px]">
               <span className="font-bold">Адрес:</span><br/>
