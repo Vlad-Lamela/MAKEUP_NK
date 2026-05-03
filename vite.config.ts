@@ -8,13 +8,13 @@ export default defineConfig(() => ({
   base: '/',
 
   server: {
-    host: "::",
-    port: 8080,
-    fs: {
-      allow: ["./client", "./shared"],
-      deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
-    },
+  host: "::",
+  port: 8080,
+  fs: {
+    allow: ["."],
+    deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
   },
+},
 
   // ВАЖНО: собираем СРАЗУ в docs, чтобы Pages читал это без копирования
   build: {
