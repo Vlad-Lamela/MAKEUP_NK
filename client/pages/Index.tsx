@@ -138,7 +138,7 @@ export default function Index() {
                   Сияющий тон, коррекция, легкий макияж глаз, оформление бровей, нюдовые губы, включает в себя накладные ресницы.
                 </p>
                 <button className="bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
-                  1 700 ₽
+                  3 000 ₽
                 </button>
               </div>
             </div>
