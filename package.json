@@ -18,7 +18,9 @@
     "start": "node dist/server/node-build.mjs",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "build:static": "npm run build:client && node scripts/prepare-static.mjs",
+    "test:admin": "vitest --run worker/index.test.ts"
   },
   "dependencies": {
     "@pbe/react-yandex-maps": "^1.2.5",

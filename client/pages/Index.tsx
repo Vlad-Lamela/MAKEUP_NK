@@ -1,250 +1,49 @@
-import YandexMap from "@/components/YandexMap";
+import { useEffect, useRef, useState } from 'react';
+import { Menu, X, Play, Heart, Gem, Armchair, Paintbrush, Instagram, Phone, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { loadContent } from '@/lib/content';
+import { categories, serviceGroups, type SiteContent } from '@shared/site-content';
+import './site.css';
 
-import { withUtm } from "@/lib/utm";
-
-
-
-export default function Index() {
-  return (
-    <div className="min-h-screen bg-[#3a3a3a] text-white font-sans">
-      <div className="w-full">
-        {/* Hero Section with Banner and Avatar */}
-        <section className="relative bg-[#3a3a3a]">
-          {/* Banner Background */}
-          <div 
-            className="w-full h-[400px] bg-cover bg-center"
-            style={{
-              backgroundImage: `url('/main-banner.png')`
-            }}
-          />
-          
-          {/* Avatar */}
-          <div className="flex justify-center relative -mt-[80px] pb-[30px] z-10">
-            <div 
-              className="w-[140px] h-[140px] rounded-full bg-cover bg-center border-4 border-[#3a3a3a]"
-              style={{
-                backgroundImage: `url('https://static.tildacdn.pub/tild3163-6136-4132-b934-636430336539/noroot.png')`
-              }}
-            />
-          </div>
-        </section>
-
-        {/* Divider with Star */}
-        <div className="bg-[#3a3a3a] py-[15px] px-5 flex justify-center items-center gap-4">
-          <div className="flex-1 max-w-[150px] h-px bg-gradient-to-r from-transparent to-[#693B9A]" />
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
-            <path fillRule="evenodd" clipRule="evenodd" d="M7.5009 0L9.67541 4.6824L14.8006 5.30356L11.0194 8.81861L12.0124 13.8849L7.5009 11.375L2.98942 13.8849L3.98243 8.81861L0.201172 5.30356L5.32637 4.6824L7.5009 0ZM7.5009 2.22578L5.95696 5.55034L2.31802 5.99137L5.00275 8.48708L4.2977 12.0842L7.5009 10.3021L10.7041 12.0842L9.99904 8.48708L12.6838 5.99137L9.04484 5.55034L7.5009 2.22578Z" fill="#8D5193"/>
-          </svg>
-          <div className="flex-1 max-w-[150px] h-px bg-gradient-to-l from-transparent to-[#693B9A]" />
-        </div>
-
-        {/* Social Media Buttons */}
-       {/* Social Media Buttons */}
-<section className="bg-[#3a3a3a] py-[30px] px-5">
-  <div className="max-w-[640px] mx-auto">
-    <div className="flex flex-col gap-[10px] max-w-[350px] mx-auto">
-      <a
-        href={withUtm("https://vk.ru/beauty_scout_nk1", "vk_main")}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center font-bold text-[13px]"
-      >
-        Мои работы
-      </a>
-
-      <a
-        href={withUtm("https://max.ru/u/f9LHodD0cOINpgkQSxwry9j9RAtKauyeRdsJxj0gyd2w3CXGwWXcXK-EZwI", "max_booking")}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
-      >
-        <div className="font-bold text-[13px]">MAX</div>
-        <div className="text-[11px] opacity-80 font-bold">Запись</div>
-      </a>
-
-      <a
-        href={withUtm("https://vk.me/beauty_scout_nk", "vk_dm")}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
-      >
-        <div className="font-bold text-[13px]">VKontakte</div>
-        <div className="text-[11px] opacity-80 font-bold">Запись</div>
-      </a>
-
-      <a
-        href={withUtm("https://t.me/beauty_scout_nk#", "tg_booking")}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
-      >
-        <div className="font-bold text-[13px]">Telegram</div>
-        <div className="text-[11px] opacity-80 font-bold">Запись</div>
-      </a>
-
-      <a
-        href={withUtm("https://www.instagram.com/beauty_scout_nk", "ig_profile")}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-md py-[14px] px-4 text-center"
-      >
-        <div className="font-bold text-[13px]">Instagram</div>
-        <div className="text-[11px] opacity-80 font-bold">Запись</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-        {/* Divider with Star */}
-        <div className="bg-[#3a3a3a] py-[15px] px-5 flex justify-center items-center gap-4">
-          <div className="flex-1 max-w-[150px] h-px bg-gradient-to-r from-transparent to-[#693B9A]" />
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
-            <path fillRule="evenodd" clipRule="evenodd" d="M7.5009 0L9.67541 4.6824L14.8006 5.30356L11.0194 8.81861L12.0124 13.8849L7.5009 11.375L2.98942 13.8849L3.98243 8.81861L0.201172 5.30356L5.32637 4.6824L7.5009 0ZM7.5009 2.22578L5.95696 5.55034L2.31802 5.99137L5.00275 8.48708L4.2977 12.0842L7.5009 10.3021L10.7041 12.0842L9.99904 8.48708L12.6838 5.99137L9.04484 5.55034L7.5009 2.22578Z" fill="#8D5193"/>
-          </svg>
-          <div className="flex-1 max-w-[150px] h-px bg-gradient-to-l from-transparent to-[#693B9A]" />
-        </div>
-
-        {/* Price List Section */}
-        <section className="bg-[#3a3a3a] py-[30px] px-5">
-          <div className="max-w-[640px] mx-auto">
-            {/* Section Title */}
-            <h2 className="text-center text-[28px] font-bold uppercase mb-[45px]">Прайс лист</h2>
-
-            {/* Service Card 1 - Day Makeup (Image Left, Text Right) */}
-            <div className="flex flex-col md:flex-row gap-6 mb-[75px]">
-              {/* Mobile Image */}
-              <div 
-                className="md:hidden w-full aspect-[4/3] rounded-lg bg-cover bg-center"
-                style={{
-                  backgroundImage: `url('https://static.tildacdn.pub/tild3837-6139-4637-b862-363861663836/photo.jpg')`
-                }}
-              />
-              
-              {/* Desktop Image - Left */}
-              <div className="hidden md:block md:w-1/2 flex-shrink-0">
-                <div 
-                  className="w-full aspect-[4/3] rounded-lg bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url('https://static.tildacdn.pub/tild3837-6139-4637-b862-363861663836/photo.jpg')`
-                  }}
-                />
-              </div>
-
-              {/* Text Content - Right */}
-              <div className="md:w-1/2 flex flex-col justify-center">
-                <h3 className="text-[21px] font-bold uppercase mb-4">Дневной макияж</h3>
-                <p className="text-[12px] font-light leading-[20.3px] mb-6">
-                  Сияющий тон, коррекция, легкий макияж глаз, оформление бровей, нюдовые губы, включает в себя накладные ресницы.
-                </p>
-                <button className="bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
-                  2 000 ₽
-                </button>
-              </div>
-            </div>
-
-            {/* Service Card 2 - Evening Makeup (Text Left, Image Right on Desktop) */}
-            <div className="flex flex-col md:flex-row-reverse gap-6 mb-[75px]">
-              {/* Mobile Image */}
-              <div 
-                className="md:hidden w-full aspect-[4/3] rounded-lg bg-cover bg-center"
-                style={{
-                  backgroundImage: `url('https://static.tildacdn.pub/tild3939-3534-4131-b238-643031336133/photo.jpg')`
-                }}
-              />
-              
-              {/* Desktop Image - Right */}
-              <div className="hidden md:block md:w-1/2 flex-shrink-0">
-                <div 
-                  className="w-full aspect-[4/3] rounded-lg bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url('https://static.tildacdn.pub/tild3939-3534-4131-b238-643031336133/photo.jpg')`
-                  }}
-                />
-              </div>
-
-              {/* Text Content - Left */}
-              <div className="md:w-1/2 flex flex-col justify-center">
-                <h3 className="text-[20px] font-bold uppercase mb-4">Вечерний макияж</h3>
-                <p className="text-[12px] font-light leading-[20.3px] mb-6">
-                  Сияющий тон, коррекция, эффектный взгляд (от смоки до стрелок), оформление бровей, подходящее оформление губ, включает в себя накладные ресницы.
-                </p>
-                <button className="bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
-                  2 500 ₽
-                </button>
-              </div>
-            </div>
-
-            {/* Service Card 3 - Wedding Makeup (Image Left, Text Right) */}
-            <div className="flex flex-col md:flex-row gap-6">
-              {/* Mobile Image */}
-              <div 
-                className="md:hidden w-full aspect-[4/3] rounded-lg bg-cover bg-center"
-                style={{
-                  backgroundImage: `url('https://static.tildacdn.pub/tild6432-6437-4631-b963-383339396131/photo.jpg')`
-                }}
-              />
-              
-              {/* Desktop Image - Left */}
-              <div className="hidden md:block md:w-1/2 flex-shrink-0">
-                <div 
-                  className="w-full aspect-[4/3] rounded-lg bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url('https://static.tildacdn.pub/tild6432-6437-4631-b963-383339396131/photo.jpg')`
-                  }}
-                />
-              </div>
-
-              {/* Text Content - Right */}
-              <div className="md:w-1/2 flex flex-col justify-center">
-                <h3 className="text-[20px] font-bold uppercase mb-4">Свадебный макияж</h3>
-                <p className="text-[12px] font-light leading-[20.3px] mb-6">
-                  Сияющий тон, коррекция, эффектный взгляд (от смоки до стрелок), оформление бровей, подходящее оформление губ, включает в себя накладные ресницы, оформление тела + предоставляются расходники (мини косметичка).
-                </p>
-                <button className="bg-[#291948] hover:bg-[#7a4aab] transition-colors rounded-lg py-[12px] px-4 text-center font-bold text-[12px] w-full md:w-auto">
-                  3 000 ₽
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Divider with Star */}
-        <div className="bg-[#3a3a3a] py-[15px] px-5 flex justify-center items-center gap-4">
-          <div className="flex-1 max-w-[150px] h-px bg-gradient-to-r from-transparent to-[#693B9A]" />
-          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">
-            <path fillRule="evenodd" clipRule="evenodd" d="M7.5009 0L9.67541 4.6824L14.8006 5.30356L11.0194 8.81861L12.0124 13.8849L7.5009 11.375L2.98942 13.8849L3.98243 8.81861L0.201172 5.30356L5.32637 4.6824L7.5009 0ZM7.5009 2.22578L5.95696 5.55034L2.31802 5.99137L5.00275 8.48708L4.2977 12.0842L7.5009 10.3021L10.7041 12.0842L9.99904 8.48708L12.6838 5.99137L9.04484 5.55034L7.5009 2.22578Z" fill="#8D5193"/>
-          </svg>
-          <div className="flex-1 max-w-[150px] h-px bg-gradient-to-l from-transparent to-[#693B9A]" />
-        </div>
-
-        {/* Address Section */}
-        <section className="bg-[#3a3a3a] py-[15px] px-5">
-          <div className="max-w-[640px] mx-auto text-center">
-            <p className="text-[14px] font-light leading-[23.2px]">
-              <span className="font-bold">Адрес:</span><br/>
-              г. Нижнекамск, ул. Бызова 2к2, салон Dream Room
-            </p>
-          </div>
-        </section>
-
-        {/* Map Section (Yandex) */}
-<YandexMap
-  key="55.657748,51.824357"
-  center={[55.657748, 51.824357]}
-  zoom={17}
-  height={385}
-/>
-
-        {/* Footer */}
-        <footer className="bg-[#0D0D0D] py-[45px] pb-[60px] px-5">
-          <div className="max-w-[640px] mx-auto text-center">
-            <p className="text-[10px] font-light leading-[17.4px] text-[#C6C6C6]">
-              All text, photo, and video materials belong to their owners and are for demonstration purposes only. Please do not use them in commercial projects.
-            </p>
-          </div>
-        </footer>
-      </div>
-    </div>
-  );
+export function Photo({src,tile,alt,className=''}:{src:string;tile?:number;alt:string;className?:string}) {
+  return <div className={'photo '+className}>{typeof tile==='number'?<svg viewBox={(tile%3)+' '+Math.floor(tile/3)+' 1 1'} preserveAspectRatio="xMidYMid slice" role="img" aria-label={alt}><image href={src} width="3" height="3"/></svg>:<img src={src} alt={alt} loading="lazy"/>}</div>;
 }
+function Brand(){return <span className="brand"><span className="brand-icon" aria-hidden="true"/><span>BEAUTY SCOUT<small>красота ближе</small></span></span>;}
+export function Landing({content:c,preview=false}:{content:SiteContent;preview?:boolean}){
+ const [menu,setMenu]=useState(false),[filter,setFilter]=useState('all');
+ const [photo,setPhoto]=useState<SiteContent['gallery'][number]|null>(null);
+ const [priceGroup,setPriceGroup]=useState<string|null>(null);
+ const [moreAbout,setMoreAbout]=useState(false);
+ const track=useRef<HTMLDivElement>(null);
+ const works=c.gallery.filter(p=>p.visible&&(filter==='all'||p.category===filter));
+ const nav=[['home','Главная'],['services','Услуги'],['price','Прайс'],['about','Обо мне'],['works','Работы'],['contacts','Контакты']];
+ const features=[[Gem,'Профессиональный\nподход'],[Paintbrush,'Качественная\nкосметика'],[Armchair,'Уютная\nатмосфера'],[Heart,'Индивидуальный\nподход']] as const;
+ const navLinks=()=>nav.map(([id,label])=>id==='price'?<button key={id} onClick={()=>{setPriceGroup('all');setMenu(false);}}>Прайс</button>:<a key={id} href={'#'+id} onClick={()=>setMenu(false)}>{label}</a>);
+ return <div className="beauty-site">
+  {preview&&<div className="preview-ribbon">Предпросмотр · изменения ещё не опубликованы</div>}
+  <header className="site-header"><a href="#home" aria-label="Beauty Scout — главная"><Brand/></a><nav className={menu?'open':''} id="main-nav" aria-label="Главное меню">{navLinks()}</nav><div className="header-actions"><a className="pill pill-outline" href="#contacts">Записаться</a><a className="social-circle" href={c.contacts.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={22}/></a></div><button className="mobile-menu" aria-label={menu?'Закрыть меню':'Открыть меню'} aria-controls="main-nav" aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button></header>
+  <main>
+   <section id="home" className="hero" style={{backgroundImage:'url("'+c.hero.image+'")'}} aria-label={c.hero.imageAlt}>
+    <span className="hero-monogram" aria-hidden="true"><b>B</b><i>S</i></span><div className="hero-copy"><p className="eyebrow">MAKEUP&nbsp; HAIR&nbsp; BEAUTY <span/></p><h1>{c.hero.title}</h1><p className="hero-subtitle">{c.hero.subtitle}</p><div className="hero-actions"><a className="pill" href="#contacts">Записаться</a><a className="portfolio-link" href="#works"><span className="play-circle"><Play fill="currentColor" size={18}/></span><span>Посмотреть<br/>портфолио</span></a></div><p className="hero-note">BEAUTY IS A STATE OF MIND <span/></p></div>
+    <span className="hero-side-note"><b>✦</b>Больше<br/>чем<br/>просто<br/>красота</span><span className="hero-script">Beauty<br/><i>is you</i> ♡</span>
+   </section>
+   <section id="services" className="offerings" aria-label="Услуги">{c.offerings.map(o=><button className="offering" key={o.id} onClick={()=>setPriceGroup(o.id)}><Photo src={o.image} tile={o.tile} alt={o.title}/><span className="offering-shade"/><span className="offering-copy"><strong>{o.title}</strong><span>{o.description}</span></span><span className="offering-open" aria-hidden="true">＋</span></button>)}</section>
+   <section id="about" className="about-band"><span className="botanical botanical-about" aria-hidden="true"/><div className="about-copy"><p className="eyebrow">ОБО МНЕ <span/>✦</p><h2>{c.about.title}</h2><p>{c.about.text}</p><button className="pill pill-outline" onClick={()=>setMoreAbout(true)}>Подробнее</button></div><div className="about-portrait"><img src={c.about.image} alt={c.about.title+' — визажист Beauty Scout'} loading="lazy"/><span className="portrait-star" aria-hidden="true">✦</span></div><div className="about-quote"><span className="quote-mark">“</span><blockquote>{c.about.quote}</blockquote><div className="quote-heart"><span/><Heart size={19}/><span/></div></div><div className="features">{features.map(([Icon,label])=><div key={label}><Icon strokeWidth={1.15}/><span>{label}</span></div>)}</div></section>
+   <section id="works" className="works-section"><div className="works-header"><h2>Мои работы <span/></h2><div className="gallery-filters" role="group" aria-label="Категории работ">{[['all','Все'],...Object.entries(categories)].map(([key,label])=><button key={key} aria-pressed={key===filter} onClick={()=>setFilter(key)}>{label}</button>)}</div><div className="gallery-controls"><button aria-label="Предыдущие работы" onClick={()=>track.current?.scrollBy({left:-450,behavior:'smooth'})}><ChevronLeft size={20}/></button><button aria-label="Следующие работы" onClick={()=>track.current?.scrollBy({left:450,behavior:'smooth'})}><ChevronRight size={20}/></button></div></div>
+    <div ref={track} className="gallery-grid">{works.map(p=><button className="gallery-item" key={p.id} aria-label={'Открыть фото: '+p.caption} onClick={()=>setPhoto(p)}><Photo src={p.image} tile={p.tile} alt={p.caption}/></button>)}{works.length===0&&<p className="empty-gallery">В этом разделе пока нет фотографий.</p>}<a className="gallery-more" href={c.contacts.portfolio} target="_blank" rel="noopener noreferrer"><span>Смотреть<br/>больше</span></a></div>
+    <a className="mobile-more pill pill-outline" href={c.contacts.portfolio} target="_blank" rel="noopener noreferrer">Смотреть больше</a>
+   </section>
+  </main>
+  <footer id="contacts" className="site-footer"><div className="footer-main"><a className="footer-brand" href="#home" aria-label="Beauty Scout — главная"><Brand/></a><div className="footer-contacts"><h3>Контакты</h3><a href={'tel:'+c.contacts.phone.replace(/[^+0-9]/g,'')}><Phone size={18}/>{c.contacts.phone}</a><a href={c.contacts.instagram} target="_blank" rel="noopener noreferrer"><Instagram size={18}/>beauty_scout_nk</a><a href={c.contacts.vk} target="_blank" rel="noopener noreferrer"><span className="social-text">vk</span>ВКонтакте</a><a href={c.contacts.telegram} target="_blank" rel="noopener noreferrer"><span className="social-text">↗</span>Telegram · запись</a></div><div className="footer-address"><h3>Адрес</h3><div><MapPin size={20}/><p>г. {c.contacts.city},<br/>{c.contacts.address}</p></div><a className="pill pill-outline" href={'https://yandex.ru/maps/?text='+encodeURIComponent(c.contacts.city+', '+c.contacts.address)} target="_blank" rel="noopener noreferrer">Как добраться</a></div><a className="footer-map" href={"https://yandex.ru/maps/?text="+encodeURIComponent(c.contacts.city+", "+c.contacts.address)} target="_blank" rel="noopener noreferrer" aria-label="Открыть карту студии"><svg viewBox="650 1204 289 128" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><image href="/media/reference-source.webp" width="1151" height="1367"/></svg></a><nav className="footer-nav" aria-label="Навигация внизу страницы"><h3>Навигация</h3>{navLinks()}</nav><span className="botanical botanical-footer" aria-hidden="true"/></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Beauty Scout. Все права защищены.</span><a href="#home">Наверх</a></div></footer>
+  <Dialog open={!!photo} onOpenChange={o=>!o&&setPhoto(null)}><DialogContent className="photo-dialog"><DialogTitle>{photo?.caption||'Работа Beauty Scout'}</DialogTitle><DialogDescription>{photo?categories[photo.category]:''}</DialogDescription>{photo&&<Photo src={photo.image} tile={photo.tile} alt={photo.caption}/>}</DialogContent></Dialog>
+  <Dialog open={priceGroup!==null} onOpenChange={o=>!o&&setPriceGroup(null)}><DialogContent className="price-dialog"><DialogTitle>{priceGroup==='all'?'Услуги и стоимость':serviceGroups[priceGroup as keyof typeof serviceGroups]||'Услуги'}</DialogTitle><DialogDescription>Выберите услугу и напишите, на какую дату хотите записаться.</DialogDescription><div className="price-list">{c.services.filter(s=>s.visible&&(priceGroup==='all'||s.group===priceGroup)).map(s=><article key={s.id}><div><h3>{s.title}</h3><p>{s.description}</p></div><strong>{s.price===null?'По запросу':s.price.toLocaleString('ru-RU')+' ₽'}</strong></article>)}</div><a className="pill" href={c.contacts.booking} target="_blank" rel="noopener noreferrer">Записаться</a></DialogContent></Dialog>
+  <Dialog open={moreAbout} onOpenChange={setMoreAbout}><DialogContent className="about-dialog"><DialogTitle>{c.about.title} · Beauty Scout</DialogTitle><DialogDescription>{c.about.text}</DialogDescription><p>Обсудим ваш образ, событие и пожелания в переписке. Можно прислать понравившиеся примеры и задать вопросы перед записью.</p><a className="pill" href={c.contacts.booking} target="_blank" rel="noopener noreferrer">Написать Алисе</a></DialogContent></Dialog>
+ </div>;
+}
+export default function Index(){
+ const [content,setContent]=useState<SiteContent>(),[error,setError]=useState('');
+ useEffect(()=>{loadContent().then(setContent).catch(()=>setError('Не удалось загрузить сайт. Проверьте соединение и обновите страницу.'));},[]);
+ if(!content)return <div className="site-loading"><span className="monogram">BS</span><p role="status">{error||'Beauty Scout'}</p>{error&&<button onClick={()=>location.reload()}>Попробовать снова</button>}</div>;
+ return <Landing content={content}/>;
+}
+

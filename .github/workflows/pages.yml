@@ -27,13 +27,11 @@ jobs:
           cache: 'npm'
 
       - name: Install deps
-        run: npm ci || npm i
+        run: npm ci
 
       - name: Build (Vite -> docs/)
         run: |
-          npm run build
-          cp docs/index.html docs/404.html || true
-          touch docs/.nojekyll
+          npm run build:static
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

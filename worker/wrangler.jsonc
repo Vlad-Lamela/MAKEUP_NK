@@ -1,0 +1,1 @@
+{"name":"makeup-nk-admin","main":"index.ts","compatibility_date":"2026-10-01","workers_dev":true,"vars":{"GITHUB_REPO":"Vlad-Lamela/MAKEUP_NK","GITHUB_BRANCH":"main","ALLOWED_ORIGINS":"https://makeup-nk.ru,https://www.makeup-nk.ru"},"ratelimits":[{"name":"LOGIN_LIMITER","namespace_id":"1078101","simple":{"limit":8,"period":60}}]}
