@@ -45,7 +45,6 @@ export default function YandexMap({
           height={height}
           options={{
             suppressMapOpenBlock: true,
-            yandexMapAllowCSSFilters: true,
           }}
           modules={["control.ZoomControl", "control.FullscreenControl"]}
         >

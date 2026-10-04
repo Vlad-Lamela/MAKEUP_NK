@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "publishedId": "initial",
+  "hero": {
+    "title": "Твоя красота\nв надёжных руках",
+    "subtitle": "Макияж · Причёски · Обучение",
+    "image": "/media/reference-hero.webp",
+    "imageAlt": "Beauty Scout — макияж и причёски"
+  },
+  "about": {
+    "title": "Алиса",
+    "text": "Твой персональный мастер по макияжу, причёскам и обучению. Помогаю раскрыть твою красоту, подчеркнуть индивидуальность и чувствовать себя уверенно в любой ситуации.",
+    "image": "/media/reference-about.webp",
+    "quote": "Красота —\nэто не тренд,\nа ощущение себя"
+  },
+  "contacts": {
+    "city": "Нижнекамск",
+    "address": "ул. Бызова, 2к2 · салон Dream Room",
+    "booking": "https://t.me/beauty_scout_nk",
+    "telegram": "https://t.me/beauty_scout_nk",
+    "vk": "https://vk.me/beauty_scout_nk",
+    "max": "https://max.ru/u/f9LHodD0cOINpgkQSxwry9j9RAtKauyeRdsJxj0gyd2w3CXGwWXcXK-EZwI",
+    "instagram": "https://www.instagram.com/beauty_scout_nk",
+    "portfolio": "https://vk.ru/beauty_scout_nk1",
+    "phone": "+7 917 919-88-90"
+  },
+  "services": [
+    {
+      "id": "day",
+      "title": "Дневной макияж",
+      "description": "Сияющий тон, лёгкий макияж глаз, оформление бровей и нюдовые губы. Накладные ресницы включены.",
+      "price": 2000,
+      "visible": true,
+      "image": "/media/day.webp",
+      "group": "makeup"
+    },
+    {
+      "id": "evening",
+      "title": "Вечерний макияж",
+      "description": "Выразительный взгляд — от смоки до стрелок, сияющий тон и подходящий оттенок губ. Накладные ресницы включены.",
+      "price": 2500,
+      "visible": true,
+      "image": "/media/evening.webp",
+      "group": "makeup"
+    },
+    {
+      "id": "wedding",
+      "title": "Свадебный макияж",
+      "description": "Продуманный образ для особенного дня: макияж, накладные ресницы и оформление тела. Мини-косметичка с расходниками в подарок.",
+      "price": 3000,
+      "visible": true,
+      "image": "/media/wedding.webp",
+      "group": "makeup"
+    },
+    {
+      "id": "hair",
+      "title": "Причёски и укладки",
+      "description": "Локоны, собранные образы, свадебные и вечерние причёски. Обсудим ваш образ и стоимость перед записью.",
+      "price": null,
+      "group": "hair",
+      "visible": true,
+      "image": "/media/reference-grid.webp"
+    },
+    {
+      "id": "training",
+      "title": "Обучение макияжу и причёскам",
+      "description": "Индивидуальные и групповые уроки. Напишите, чему хотите научиться, чтобы подобрать формат и уточнить стоимость.",
+      "price": null,
+      "group": "training",
+      "visible": true,
+      "image": "/media/reference-grid.webp"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "reference-0",
+      "image": "/media/reference-grid.webp",
+      "caption": "Вечерний образ",
+      "category": "makeup",
+      "tile": 3,
+      "visible": true
+    },
+    {
+      "id": "reference-1",
+      "image": "/media/reference-grid.webp",
+      "caption": "Собранная причёска",
+      "category": "hair",
+      "tile": 4,
+      "visible": true
+    },
+    {
+      "id": "reference-2",
+      "image": "/media/reference-grid.webp",
+      "caption": "Детали макияжа",
+      "category": "makeup",
+      "tile": 5,
+      "visible": true
+    },
+    {
+      "id": "reference-3",
+      "image": "/media/reference-grid.webp",
+      "caption": "Мягкие локоны",
+      "category": "hair",
+      "tile": 6,
+      "visible": true
+    },
+    {
+      "id": "reference-4",
+      "image": "/media/reference-grid.webp",
+      "caption": "Акцент на взгляд",
+      "category": "look",
+      "tile": 7,
+      "visible": true
+    },
+    {
+      "id": "reference-5",
+      "image": "/media/reference-grid.webp",
+      "caption": "Элегантный пучок",
+      "category": "hair",
+      "tile": 8,
+      "visible": true
+    }
+  ],
+  "offerings": [
+    {
+      "id": "makeup",
+      "title": "Макияж",
+      "description": "Дневной · Вечерний · Свадебный\nОбразы для особых случаев",
+      "image": "/media/reference-grid.webp",
+      "tile": 0
+    },
+    {
+      "id": "hair",
+      "title": "Причёски",
+      "description": "Локоны · Собранные образы\nСвадебные и вечерние причёски",
+      "image": "/media/reference-grid.webp",
+      "tile": 1
+    },
+    {
+      "id": "training",
+      "title": "Обучение",
+      "description": "Индивидуальные и групповые\nуроки по макияжу и причёскам",
+      "image": "/media/reference-grid.webp",
+      "tile": 2
+    }
+  ]
+}
